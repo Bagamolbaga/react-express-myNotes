@@ -255,7 +255,49 @@
   }
 }
 
-
+.authorization__container {
+  border-radius: 10px;
+  border: 2px solid #A856F7;
+  height: 500px;
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  &-label {
+    margin-right: 10px;
+    font-size: 20px;
+    margin: 20px 0 10px 0;
+  }
+  &-input {
+    width: 300px;
+    height: 40px;
+    padding: 0 5px;
+    border: 1px solid #644CC3;
+    border-radius: 5px;
+    outline: none;
+  }
+  &-btn {
+    width: 300px;
+    height: 40px;
+    margin-top: 60px;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    border: 2px solid #644CC3;
+    outline: none;
+    background-color: #644CC3;
+    transition: all .1s;
+    &:hover {
+      background-color: #A856F7;
+    }
+  }
+  &-span {
+    color: #644CC3;
+    cursor: pointer;
+  }
+}
 
 
 

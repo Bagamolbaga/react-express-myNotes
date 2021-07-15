@@ -5,7 +5,6 @@ import {
   showCreateNoteForm,
   createGroup,
   selectActiveGroup,
-  showActiveGroup
 } from '../store/actions'
 import {Button, Col} from 'react-bootstrap'
 import Avatar from './Avatar'
@@ -16,6 +15,8 @@ const SideBar = () => {
 
   const dispatch = useDispatch()
   const {groups, selectedGroup} = useSelector(state => state)
+
+  const isDisabled = !groupVal.length
 
   const addNewGroup = () => {
     setShowAddGroupForm(false)
@@ -36,7 +37,7 @@ const SideBar = () => {
         showAddGroupForm ? (
           <>
             <input value={groupVal} onChange={(e) => setGroupVal(e.target.value)} type="text" className='sideBar__input_add'/>
-            <button onClick={addNewGroup} className='sideBar__btn_group_add'>ADD</button>
+            <button disabled={isDisabled} onClick={addNewGroup} className='sideBar__btn_group_add'>ADD</button>
           </>
         ) : 
         <Button onClick={() => setShowAddGroupForm(true)} className='sideBar__btn_group'>Add Group</Button>

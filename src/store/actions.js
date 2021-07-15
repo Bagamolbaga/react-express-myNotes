@@ -5,6 +5,10 @@ export const SHOW_CREATE_NOTE_FORM = 'SHOW_CREATE_NOTE_FORM'
 export const SELECT_ACTIVE_GROUP = 'SELECT_ACTIVE_GROUP'
 export const SHOW_ACTIVE_GROUP = 'SHOW_ACTIVE_GROUP'
 export const SELECT_NOTE = 'SELECT_NOTE'
+export const EDIT_SELECT_NOTE = 'EDIT_SELECT_NOTE'
+export const SHOW_EDIT_NOTE_FORM = 'SHOW_EDIT_NOTE_FORM'
+
+
 
 
 
@@ -36,6 +40,12 @@ export const showCreateNoteForm = () => {
   }
 }
 
+export const showEditForm = () => {
+  return {
+    type: SHOW_EDIT_NOTE_FORM
+  }
+}
+
 export const selectActiveGroup = (value) => {
   return {
     type: SELECT_ACTIVE_GROUP,
@@ -54,5 +64,12 @@ export const selectNote = (id) => {
   return {
     type: SELECT_NOTE,
     payload: id
+  }
+}
+
+export const editNote = (value) => {
+  return {
+    type: EDIT_SELECT_NOTE,
+    payload: value
   }
 }

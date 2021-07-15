@@ -5,15 +5,18 @@ import {
   SHOW_CREATE_NOTE_FORM,
   SELECT_ACTIVE_GROUP,
   SHOW_ACTIVE_GROUP,
-  SELECT_NOTE
+  SELECT_NOTE,
+  EDIT_SELECT_NOTE,
+  SHOW_EDIT_NOTE_FORM
 } from './actions'
 
 
 
 const initialState = {
-  selectNoteId: 2,
+  selectNoteId: false,
   selectedGroup: 'All',
   showCeateNoteForm: false,
+  showEditNoteForm: false,
   user: {
     name: 'Baga',
     avatar: 'https://c4.wallpaperflare.com/wallpaper/40/881/286/hoodie-anime-girl-wallpaper-preview.jpg',
@@ -82,10 +85,31 @@ export const reducer = (state = initialState, action) => {
         selectNoteId: false
       }
 
+    case SHOW_EDIT_NOTE_FORM:
+      return {
+        ...state,
+        showEditNoteForm: true
+      }
+
     case SELECT_NOTE:
       return {
         ...state,
         selectNoteId: action.payload
+      }
+
+     case EDIT_SELECT_NOTE:
+      let notes = [...state.notes]
+      notes.map(note => {
+        if(note.id === state.selectNoteId) {
+          note.title = action.payload.title
+          note.text = action.payload.text
+        }
+        return note
+      })
+      return {
+        ...state,
+        notes: [...notes],
+        showEditNoteForm: false
       }
   
     default:
